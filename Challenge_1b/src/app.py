@@ -16,7 +16,7 @@ for COLLECTION_PATH in COLLECTIONS:
 
     # Make output name dynamic per collection
     collection_name = os.path.basename(os.path.normpath(COLLECTION_PATH))
-    OUTPUT_JSON = os.path.join("./src/output/", f"{collection_name}_output.json")
+    OUTPUT_JSON = os.path.join("./src/output/", f"{collection_name}_Output.json")
 
     # Load input
     with open(INPUT_JSON) as f:

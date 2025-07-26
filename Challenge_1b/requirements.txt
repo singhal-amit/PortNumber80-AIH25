@@ -1,0 +1,8 @@
+PyMuPDF
+nltk
+sentence-transformers
+scikit-learn
+onnxruntime
+torch==2.1.2
+numpy<2
+-f https://download.pytorch.org/whl/cpu/torch_stable.html

@@ -29,7 +29,7 @@ Supports scenarios like:
 
 ---
 
-# ⚙️ **Tech Stack**
+## ⚙️ **Tech Stack**
 
 | Layer                 | Tool                    | Purpose                            |
 | --------------------- | ----------------------- | ---------------------------------- |
@@ -154,11 +154,10 @@ Supports scenarios like:
 
 ## 🧩 **Key Highlights**
 
-[x] Persona-driven section ranking
-✅ Semantic similarity for precise matching
-✅ JSON output for easy integration
-✅ Same logic works in Docker or virtualenv
-
+* [x] Persona-driven section ranking
+* [x] Semantic similarity for precise matching
+* [x] JSON output for easy integration
+* [x] Same logic works in Docker or virtualenv
 ---
 
 ## 🐳 **Run Locally**
@@ -183,3 +182,12 @@ docker run --rm -it -v ${PWD}/Collection_1:/app/Collection_1 -v ${PWD}/Collectio
 ```
 
 ✅ Outputs are saved back as `solution1b_output.json` in each collection folder.
+
+---
+
+## 👥 **Team PortNumber80**
+
+| GitHub                                                                                                                              | Name             | Role                                              |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------- |
+| <a href="https://github.com/gkjha2772"><img src="https://avatars.githubusercontent.com/u/151064648?v=4&s=100" width="50"/></a>      | Gautam Kumar Jha | • Built Solution 1b                               |
+| <a href="https://github.com/amit712singhal"><img src="https://avatars.githubusercontent.com/u/123376849?v=4&s=100" width="50"/></a> | Amit Singhal     | • Built Solution 1a                               |

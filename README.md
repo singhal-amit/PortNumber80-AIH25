@@ -7,28 +7,28 @@
 <details>
 <summary><strong>📑 Table of Contents</strong></summary>
 
-* 🎥 View Demo
-* 🛠️ Tech Stack
-* 🚀 Getting Started
-* 📁 Project Structure
-* 👥 Team PortNumber80
-* 🏁 Challenge Solutions
+- [Challenge Solution + Demo](#-challenge-solution--demo)  
+  - [Solution\_1a: PDF Processing](#solution_1a-pdf-processing)  
+  - [Solution\_1b: Multi-Collection PDF Analysis](#solution_1b-multi-collection-pdf-analysis)
+- [Tech Stack](#️-tech-stack)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#-prerequisites)
+  - [Installation](#️-installation)
+- [PortNumber80 - Team Details](#-team-portnumber80)
 
 </details>
 
----
-
-## 🏁 Challenge Solutions
+## 🏁 Challenge Solution + Demo
 
 ### [Solution\_1a: PDF Processing](./Solution_1a/README.md)
 
-Containerized PDF processor for heading and content extraction using layout + linguistic cues.
-\[Demo coming soon]
+Containerized PDF processor for heading and content extraction using layout + linguistic cues.<br/>
+[solution1a_demo.webm]()
 
 ### [Solution\_1b: Multi-Collection PDF Analysis](./Solution_1b/README.md)
 
-Persona-driven knowledge analysis across curated document collections.
-\[Demo coming soon]
+Persona-driven knowledge analysis across curated document collections.<br/>
+[solution_1b_demo.webm]()
 
 > *Each solution folder includes its own README for implementation details.*
 
@@ -52,15 +52,14 @@ Persona-driven knowledge analysis across curated document collections.
 ### 📦 Prerequisites
 
 * Docker
-* Docker Compose
 * Git
 
 ### ⚙️ Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/singhal-amit/PortNumber80-AIH
-cd PortNumber80-AIH
+git clone https://github.com/singhal-amit/PortNumber80-AIH25
+cd PortNumber80-AIH25
 
 # Build and run using Docker Compose
 docker compose build
@@ -136,7 +135,7 @@ docker compose up
 
 ---
 
-## 👥 Team PortNumber80
+## 👥 Team-PortNumber80
 
 | GitHub                                                                                                                              | Name             | Role                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------- |

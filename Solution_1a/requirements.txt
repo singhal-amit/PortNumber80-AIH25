@@ -1,0 +1,5 @@
+PyMuPDF==1.23.9
+numpy
+scikit-learn
+transformers
+torch

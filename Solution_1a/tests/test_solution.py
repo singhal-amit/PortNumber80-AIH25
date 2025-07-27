@@ -77,3 +77,31 @@ def compare_outputs():
             all_good = False
 
     return all_good
+
+def main():
+    print("🧪 Testing PDF Processing Solution")
+    print("=" * 50)
+
+    current_dir = Path(".")
+
+    checks = {
+        "process_pdfs.py": current_dir / "process_pdfs.py",
+        "Dockerfile": current_dir / "Dockerfile",
+        "requirements.txt": current_dir / "requirements.txt"
+    }
+
+    for name, path in checks.items():
+        if not path.exists():
+            print(f"❌ {name} not found")
+            return 1
+        print(f"✅ {name} found")
+
+    if compare_outputs():
+        print("\n🎉 All tests passed! Solution is ready for submission.")
+        return 0
+    else:
+        print("\n❌ Some tests failed. Please check the output above.")
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(main())

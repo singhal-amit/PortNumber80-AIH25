@@ -1,40 +1,57 @@
 import fitz
+from pathlib import Path
 
 def debug_pdf(pdf_path):
     """Debug PDF content to understand structure"""
     doc = fitz.open(pdf_path)
-    print(f"\n=== DEBUGGING {pdf_path} ===")
-    print(f"Number of pages: {len(doc)}")
-    
-    for page_num in range(min(3, len(doc))):  # First 3 pages
+    pdf_name = Path(pdf_path).name
+    print(f"\n\n📄 === Debugging: {pdf_name} ===")
+    print(f"📄 Total Pages: {len(doc)}")
+
+    for page_num in range(min(3, len(doc))):  # Only first 3 pages
+        print(f"\n--- 📄 Page {page_num + 1} ---")
         page = doc[page_num]
-        print(f"\n--- PAGE {page_num + 1} ---")
-        
         blocks = page.get_text("dict")["blocks"]
+
         for block_idx, block in enumerate(blocks):
             if "lines" not in block:
                 continue
+
             for line_idx, line in enumerate(block["lines"]):
                 line_text = ""
-                max_size = 0
-                is_bold = False
+                sizes = []
+                bold_flags = []
+
                 for span in line["spans"]:
-                    text = span["text"]
-                    size = span["size"]
-                    flags = span["flags"]
-                    line_text += text
-                    max_size = max(max_size, size)
-                    if flags & 2**4:  # Bold
-                        is_bold = True
-                line_text = line_text.strip()
-                if line_text and len(line_text) > 3:
-                    print(f"  [{block_idx}:{line_idx}] Size:{max_size:.1f} Bold:{is_bold} | {line_text}")
+                    text = span["text"].strip()
+                    if not text:
+                        continue
+                    sizes.append(span["size"])
+                    bold_flags.append(bool(span["flags"] & 2**4))  # Bold bit
+                    line_text += text + " "
+
+                if not line_text.strip() or len(line_text.strip()) < 4:
+                    continue
+
+                avg_size = sum(sizes) / len(sizes) if sizes else 0
+                is_bold = any(bold_flags)
+
+                print(f"  ▪️ [{block_idx}:{line_idx}] Size: {avg_size:.1f} | Bold: {is_bold} | Text: {line_text.strip()}")
+
     doc.close()
 
-# Sample files to debug
+
 if __name__ == "__main__":
-    debug_pdf("./sample_dataset/pdfs/file01.pdf")
-    debug_pdf("./sample_dataset/pdfs/file02.pdf")
-    debug_pdf("./sample_dataset/pdfs/file03.pdf")
-    debug_pdf("./sample_dataset/pdfs/file04.pdf")
-    debug_pdf("./sample_dataset/pdfs/file05.pdf")
+    sample_files = [
+        "./sample_dataset/pdfs/file01.pdf",
+        "./sample_dataset/pdfs/file02.pdf",
+        "./sample_dataset/pdfs/file03.pdf",
+        "./sample_dataset/pdfs/file04.pdf",
+        "./sample_dataset/pdfs/file05.pdf",
+    ]
+
+    for pdf in sample_files:
+        if Path(pdf).exists():
+            debug_pdf(pdf)
+        else:
+            print(f"⚠️ File not found: {pdf}")

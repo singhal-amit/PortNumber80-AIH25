@@ -1,7 +1,7 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 -f https://download.pytorch.org/whl/cpu/torch_stable.html
 
-PyMuPDF==1.23.7
+PyMuPDF==1.22.3
 torch==2.3.0+cpu
 transformers==4.43.2
 tokenizers==0.19.1

@@ -18,7 +18,7 @@ This repository contains the solution for **Challenge 1a** of the **Adobe India 
 
 ## Solution_1a Demo
 
-[!solution1a_demo.mp4](https://github.com/user-attachments/assets/ce1a6c98-7159-4197-acea-54de93998d99)
+[demo.mp4](https://github.com/user-attachments/assets/ce1a6c98-7159-4197-acea-54de93998d99)
 
 ---
 

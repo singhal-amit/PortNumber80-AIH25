@@ -1,55 +1,69 @@
 import json
 import os
-from datetime import datetime
-from utils import extract_text_from_pdfs, embed_texts, rank_sections, refine_subsections
+from datetime import datetime, timezone
+from utils import (
+    extract_text_from_pdfs,
+    embed_texts,
+    rank_sections,
+    refine_subsections,
+    learn_new_keywords
+)
 
-# 📁 List your collections here
+# 📁 Collections to process
 COLLECTIONS = [
-    "./Collection_1/",
-    "./Collection_2/",
-    "./Collection_3/"
+    os.path.join(os.path.dirname(__file__), "../Collection_1/"),
+    os.path.join(os.path.dirname(__file__), "../Collection_2/"),
+    os.path.join(os.path.dirname(__file__), "../Collection_3/")
 ]
 
+# ✅ Load persona definitions
+PERSONA_FILE =  os.path.join(os.path.dirname(__file__), "persona.json")
+with open(PERSONA_FILE) as f:
+    PERSONAS = json.load(f)
+
+# ✅ Loop through collections
 for COLLECTION_PATH in COLLECTIONS:
     PDF_PATH = os.path.join(COLLECTION_PATH, "PDFs/")
     INPUT_JSON = os.path.join(COLLECTION_PATH, "challenge1b_input.json")
 
-    # Make output name dynamic per collection
     collection_name = os.path.basename(os.path.normpath(COLLECTION_PATH))
-    OUTPUT_JSON = os.path.join("./src/output/", f"{collection_name}_Output.json")
+    OUTPUT_JSON = os.path.join(COLLECTION_PATH, f"solution1b_output.json")
 
-    # Load input
     with open(INPUT_JSON) as f:
         input_data = json.load(f)
 
-    persona = input_data["persona"]["role"]
+    persona = input_data["persona"]["role"].lower()
     job = input_data["job_to_be_done"]["task"]
 
     print(f"\n🚀 Processing: {collection_name}")
 
-    # 1️⃣ Extract PDF text
+    # 📄 Extract text
     sections = extract_text_from_pdfs(PDF_PATH, input_data["documents"])
 
-    # 2️⃣ Embed persona+job
+    # 🔍 Embed
     task_embedding = embed_texts([persona + " " + job])[0]
-
-    # 3️⃣ Embed sections
     section_texts = [s["text"] for s in sections]
     section_embeddings = embed_texts(section_texts)
 
-    # 4️⃣ Rank sections
-    ranked_sections = rank_sections(sections, section_embeddings, task_embedding)
+    # 🧩 Get persona keywords
+    persona_keywords = PERSONAS.get(persona, {}).get("keywords", [])
 
-    # 5️⃣ Refine subsections
+    # 🏅 Rank and refine
+    ranked_sections = rank_sections(
+        sections,
+        section_embeddings,
+        task_embedding,
+        keywords=persona_keywords
+    )
     subsections = refine_subsections(ranked_sections)
 
-    # 6️⃣ Prepare output
+    # ✅ Build output
     output = {
         "metadata": {
             "input_documents": [doc["filename"] for doc in input_data["documents"]],
             "persona": persona,
             "job_to_be_done": job,
-            "processing_timestamp": datetime.utcnow().isoformat()
+            "processing_timestamp": datetime.now(timezone.utc).isoformat()
         },
         "extracted_sections": [
             {
@@ -63,9 +77,17 @@ for COLLECTION_PATH in COLLECTIONS:
         "subsection_analysis": subsections
     }
 
-    # 💾 Save output
     os.makedirs(os.path.dirname(OUTPUT_JSON), exist_ok=True)
     with open(OUTPUT_JSON, "w") as f:
         json.dump(output, f, indent=4)
 
     print(f"✅ Output written to {OUTPUT_JSON}")
+
+    # 🧠 Learn new keywords!
+    PERSONAS = learn_new_keywords(PERSONAS, persona, ranked_sections)
+
+# ✅ Save back updated personas
+with open(PERSONA_FILE, "w") as f:
+    json.dump({"personas": PERSONAS}, f, indent=4)
+
+print("\n🎉 Updated persona.json with learned keywords!")

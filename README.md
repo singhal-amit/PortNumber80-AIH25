@@ -22,7 +22,7 @@
 ### [Solution\_1a: PDF Processing](./Solution_1a/README.md)
 
 Containerized PDF processor for heading and content extraction using layout + linguistic cues.<br/>
-[solution1a_demo.webm]()
+[solution1a_demo.webm](https://github.com/user-attachments/assets/ce1a6c98-7159-4197-acea-54de93998d99)
 
 ### [Solution\_1b: Multi-Collection PDF Analysis](./Solution_1b/README.md)
 

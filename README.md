@@ -1,7 +1,7 @@
-<h1 align="center">
-  <img src="./assets/logo.png" alt="PortNumber80 Logo" height="80"/>   PortNumber80<br/>Solution to "Connecting the Dots Challenge"
-</h1>
-<h3 align="center">Rethink Reading. Rediscover Knowledge</h3>
+<h3 align="center">
+  <img src="./assets/logo2.png" alt="PortNumber80 Logo" height="80"/><br/><br/>Solution to "Connecting the Dots Challenge" | Rethink  ◦  Reading  ◦  Rediscover Knowledge
+</h3>
+<h3 align="center"></h3>
 <hr/>
 
 <details>
@@ -66,8 +66,6 @@ cd PortNumber80-AIH
 docker compose build
 docker compose up
 ```
-
----
 
 <details>
 <summary><h3>📚 Project Structure</h3></summary>
@@ -135,6 +133,8 @@ docker compose up
 
 </details>
 </h2>
+
+---
 
 ## 👥 Team PortNumber80
 

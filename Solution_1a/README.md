@@ -10,15 +10,57 @@ This is a **sample solution** for Challenge 1a of the Adobe India Hackathon 2025
 - **Dockerfile**: Must be present in the root directory and functional
 - **README.md**:  Documentation explaining the solution, models, and libraries used
 
-### Build Command
+## Testing Solution
+
 ```bash
-docker build --platform linux/amd64 -t <reponame.someidentifier> .
+# Build the Docker image
+docker build --platform linux/amd64 -t pdf-processor .
+
+# Test with sample data
+docker run --rm -v $(pwd)/sample_dataset/pdfs:/app/input:ro -v $(pwd)/sample_dataset/outputs:/app/output --network none pdf-processor
 ```
 
-### Run Command
-```bash
-docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output/repoidentifier/:/app/output --network none <reponame.someidentifier>
+## Solution_1a Structure
 ```
+📁 Solution_1a/                       # Challenge 1a: PDF Processing Solution
+├── 📄 Dockerfile                         # Container configuration for PDF processing
+├── 📄 process_pdfs.py                    # Main PDF processing script
+├── 📄 README.md                          # Solution 1a documentation
+├── 📄 requirements.txt                   # Python dependencies
+│
+├── 📁 debug/                             # Debugging utilities
+|    ├── 🐛 debug_pdf.py        
+|    └── 🐛 debug_title.py     
+│
+├── 📁 local_model/                       # Local ML model
+|    └── 📁 models--prajjwal1--bert-tiny/  
+│
+├── 📁 pdf_outliner/                      # Core PDF processing module
+|    └── 📄 extractor.py                       # PDF content extraction logic
+│
+├── 📁 sample_dataset/                    # Test dataset for validation
+|    ├── 📁 expected_outputs/                  # Expected JSON outputs
+|    ├── 📁 outputs/                           # Generated JSON outputs
+|    ├── 📁 pdfs/                              # Sample PDF input files
+|    └── 📁 schema/                            # Output format specifications
+|         └── 📄 output_schema.json
+│
+└── 📁 tests/                             # Unit tests and validation
+    └── 📄 test_solution.py                    # Test suite for Solution 1a
+```
+
+## Implementation
+
+### Current Sample Solution
+The provided `process_pdfs.py` is a **basic sample** that demonstrates:
+- PDF file scanning from input directory
+- Dummy JSON data generation
+- Output file creation in the specified format
+
+**Note**: This is a placeholder implementation using dummy data. A real solution would need to:
+- Implement actual PDF text extraction
+- Parse document structure and hierarchy
+- Generate meaningful JSON output based on content analysis
 
 ### Critical Constraints
 - **Execution Time**: ≤ 10 seconds for a 50-page PDF
@@ -34,61 +76,6 @@ docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output/repoidentifier/:/
 - **Open Source**: All libraries, models, and tools must be open source
 - **Cross-Platform**: Test on both simple and complex PDFs
 
-## Sample Solution Structure
-```
-Challenge_1a/
-├── sample_dataset/
-│   ├── outputs/         # JSON files provided as outputs.
-│   ├── pdfs/            # Input PDF files
-│   └── schema/          # Output schema definition
-│       └── output_schema.json
-├── Dockerfile           # Docker container configuration
-├── process_pdfs.py      # Sample processing script
-└── README.md           # This file
-```
-
-## Sample Implementation
-
-### Current Sample Solution
-The provided `process_pdfs.py` is a **basic sample** that demonstrates:
-- PDF file scanning from input directory
-- Dummy JSON data generation
-- Output file creation in the specified format
-
-**Note**: This is a placeholder implementation using dummy data. A real solution would need to:
-- Implement actual PDF text extraction
-- Parse document structure and hierarchy
-- Generate meaningful JSON output based on content analysis
-
-### Sample Processing Script (`process_pdfs.py`)
-```python
-# Current sample implementation
-def process_pdfs():
-    input_dir = Path("/app/input")
-    output_dir = Path("/app/output")
-    
-    # Process all PDF files
-    for pdf_file in input_dir.glob("*.pdf"):
-        # Generate structured JSON output
-        # (Current implementation uses dummy data)
-        output_file = output_dir / f"{pdf_file.stem}.json"
-        # Save JSON output
-```
-
-### Sample Docker Configuration
-```dockerfile
-FROM --platform=linux/amd64 python:3.10
-WORKDIR /app
-COPY process_pdfs.py .
-CMD ["python", "process_pdfs.py"]
-```
-
-## Expected Output Format
-
-### Required JSON Structure
-Each PDF should generate a corresponding JSON file that **must conform to the schema** defined in `sample_dataset/schema/output_schema.json`.
-
-
 ## Implementation Guidelines
 
 ### Performance Considerations
@@ -102,18 +89,6 @@ Each PDF should generate a corresponding JSON file that **must conform to the sc
 - **Complex PDFs**: Test with multi-column layouts, images, tables
 - **Large PDFs**: Verify 50-page processing within time limit
 
-
-## Testing Your Solution
-
-### Local Testing
-```bash
-# Build the Docker image
-docker build --platform linux/amd64 -t pdf-processor .
-
-# Test with sample data
-docker run --rm -v $(pwd)/sample_dataset/pdfs:/app/input:ro -v $(pwd)/sample_dataset/outputs:/app/output --network none pdf-processor
-```
-
 ### Validation Checklist
 - [ ] All PDFs in input directory are processed
 - [ ] JSON output files are generated for each PDF
@@ -123,7 +98,3 @@ docker run --rm -v $(pwd)/sample_dataset/pdfs:/app/input:ro -v $(pwd)/sample_dat
 - [ ] Solution works without internet access
 - [ ] Memory usage stays within 16GB limit
 - [ ] Compatible with AMD64 architecture
-
----
-
-**Important**: This is a sample implementation. Participants should develop their own solutions that meet all the official challenge requirements and constraints. 

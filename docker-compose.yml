@@ -1,0 +1,10 @@
+services:
+  pdf-outline-extractor:
+    build:
+      context: ./Solution_1a
+      dockerfile: Dockerfile
+    container_name: pdf-outline-extractor
+    volumes:
+      - ./Solution_1a/sample_dataset:/app/sample_dataset
+    working_dir: /app
+    command: python process_pdfs.py

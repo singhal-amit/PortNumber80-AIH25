@@ -150,15 +150,16 @@ python app.py
 ```
 
 ## 🐳 **Run with Docker**
+Build the image:
 
 ```bash
 docker build -t persona-doc-intel:v8 .
+```
 
-docker run --rm -it ^
-  -v ${PWD}/Collection_1:/app/Collection_1 ^
-  -v ${PWD}/Collection_2:/app/Collection_2 ^
-  -v ${PWD}/Collection_3:/app/Collection_3 ^
-  persona-doc-intel:v8
+Run the container:
+
+```bash
+docker run --rm -it -v ${PWD}/Collection_1:/app/Collection_1 -v ${PWD}/Collection_2:/app/Collection_2 -v ${PWD}/Collection_3:/app/Collection_3 persona-doc-intel:v8
 ```
 
 ✅ Outputs are saved back as `solution1b_output.json` in each collection folder.

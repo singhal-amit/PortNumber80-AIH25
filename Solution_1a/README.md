@@ -165,3 +165,10 @@ The provided `process_pdfs.py` script is a starting point that:
 * [x] Meaningful error handling and logging
 
 ---
+
+## 👥 **Team PortNumber80**
+
+| GitHub                                                                                                                              | Name             | Role                                              |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------- |
+| <a href="https://github.com/gkjha2772"><img src="https://avatars.githubusercontent.com/u/151064648?v=4&s=100" width="50"/></a>      | Gautam Kumar Jha | • Built Solution 1b                               |
+| <a href="https://github.com/amit712singhal"><img src="https://avatars.githubusercontent.com/u/123376849?v=4&s=100" width="50"/></a> | Amit Singhal     | • Built Solution 1a                               |

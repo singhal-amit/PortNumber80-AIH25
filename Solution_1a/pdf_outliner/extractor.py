@@ -24,7 +24,7 @@ class PDFOutlineExtractor:
         self.template_embs = self._embed_texts(self.heading_templates)
 
     def _embed_texts(self, texts):
-        inputs = self.tokenizer(texts, padding=True, truncation=True, return_tensors="pt")
+        inputs = self.tokenizer(texts, padding=True, truncation=True, max_length=512, return_tensors="pt")
         with self.torch.no_grad():
             outputs = self.model(**inputs)
         return outputs.last_hidden_state[:, 0, :].cpu().numpy()
@@ -32,7 +32,7 @@ class PDFOutlineExtractor:
     def is_heading_llm(self, text):
         if not text or len(text) < 3:
             return False
-        inputs = self.tokenizer([text], padding=True, truncation=True, return_tensors="pt")
+        inputs = self.tokenizer([text], padding=True, truncation=True, max_length=512, return_tensors="pt")
         with self.torch.no_grad():
             outputs = self.model(**inputs)
         text_emb = outputs.last_hidden_state[:, 0, :].cpu().numpy()[0]
@@ -86,7 +86,7 @@ class PDFOutlineExtractor:
             return False
         if not self.is_heading_heuristic(line, body_size):
             return False
-        inputs = self.tokenizer([text], padding=True, truncation=True, return_tensors="pt")
+        inputs = self.tokenizer([text], padding=True, truncation=True, max_length=512, return_tensors="pt")
         with self.torch.no_grad():
             outputs = self.model(**inputs)
         text_emb = outputs.last_hidden_state[:, 0, :].cpu().numpy()[0]

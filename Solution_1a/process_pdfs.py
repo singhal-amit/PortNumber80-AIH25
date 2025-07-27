@@ -28,12 +28,11 @@ def main():
     print("=" * 50)
 
     current_dir = Path(".")
-    parent_dir = Path("..")
 
     checks = {
         "process_pdfs.py": current_dir / "process_pdfs.py",
         "Dockerfile": current_dir / "Dockerfile",             # adjust if not used
-        "requirements.txt": parent_dir / "requirements.txt"
+        "requirements.txt": current_dir / "requirements.txt"
     }
 
     for name, path in checks.items():

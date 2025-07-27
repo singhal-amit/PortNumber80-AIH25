@@ -4,8 +4,7 @@
 <h3 align="center"></h3>
 <hr/>
 
-<details>
-<summary><strong>📑 Table of Contents</strong></summary>
+<details><summary><h3>📑 Table of Contents</h3></summary>
 
 - [Challenge Solution + Demo](#-challenge-solution--demo)  
   - [Solution\_1a: PDF Processing](#solution_1a-pdf-processing)  
@@ -34,40 +33,7 @@ Persona-driven knowledge analysis across curated document collections.<br/>
 
 ---
 
-## 🛠️ Tech Stack
-
-|                                                      Technology                                                      | Name                     | Purpose                                      |
-| :------------------------------------------------------------------------------------------------------------------: | :----------------------- | :------------------------------------------- |
-|        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>       | Python                   | Primary language for backend processing      |
-| <img src="https://img.shields.io/badge/PyMuPDF-FF6F00?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/> | PyMuPDF                  | Fast PDF parsing and rendering               |
-|  <img src="https://img.shields.io/badge/Transformers-FF6F61?style=for-the-badge&logo=huggingface&logoColor=white"/>  | HuggingFace Transformers | Language modeling for heading classification |
-| <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/> | scikit-learn             | Clustering and ML utilities                  |
-|        <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>       | Pandas                   | Dataframe operations and formatting          |
-|               <img src="https://img.shields.io/badge/TQDM-4CBB17?style=for-the-badge&logoColor=white"/>              | TQDM                     | Progress tracking in batch operations        |
-
----
-
-## 🚀 Getting Started
-
-### 📦 Prerequisites
-
-* Docker
-* Git
-
-### ⚙️ Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/singhal-amit/PortNumber80-AIH25
-cd PortNumber80-AIH25
-
-# Build and run using Docker Compose
-docker compose build
-docker compose up
-```
-
-<details>
-<summary><h3>📚 Project Structure</h3></summary>
+<details><summary><h3>📚 Project Structure</h3></summary>
 <br/>
   
   ```bash
@@ -132,8 +98,6 @@ docker compose up
 
 </details>
 </h2>
-
----
 
 ## 👥 Team-PortNumber80
 

@@ -1,15 +1,9 @@
-# using a python base image
-FROM python:3.10-slim
+FROM --platform=linux/amd64 python:3.10
 
-# working directory
 WORKDIR /app
 
-# Copy dependencies and install
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy the processing script
+COPY process_pdfs.py .
 
-# Copy all source files
-COPY . .
-
-# Set the entry point
-CMD ["python", "process_pdfs.py"]
+# Run the script
+CMD ["python", "process_pdfs.py"] 

@@ -4,71 +4,36 @@
 <h3 align="center"></h3>
 <hr/>
 
-<details>
-<summary><strong>📑 Table of Contents</strong></summary>
+<details><summary><h3>📑 Table of Contents</h3></summary>
 
-* 🎥 View Demo
-* 🛠️ Tech Stack
-* 🚀 Getting Started
-* 📁 Project Structure
-* 👥 Team PortNumber80
-* 🏁 Challenge Solutions
+- [Challenge Solution + Demo](#-challenge-solution--demo)  
+  - [Solution\_1a: PDF Processing](#solution_1a-pdf-processing)  
+  - [Solution\_1b: Multi-Collection PDF Analysis](#solution_1b-multi-collection-pdf-analysis)
+- [Tech Stack](#️-tech-stack)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#-prerequisites)
+  - [Installation](#️-installation)
+- [PortNumber80 - Team Details](#-team-portnumber80)
 
 </details>
 
----
-
-## 🏁 Challenge Solutions
+## 🏁 Challenge Solution + Demo
 
 ### [Solution\_1a: PDF Processing](./Solution_1a/README.md)
 
-Containerized PDF processor for heading and content extraction using layout + linguistic cues.
-\[Demo coming soon]
+Containerized PDF processor for heading and content extraction using layout + linguistic cues.<br/>
+[solution1a_demo.webm]()
 
 ### [Solution\_1b: Multi-Collection PDF Analysis](./Solution_1b/README.md)
 
-Persona-driven knowledge analysis across curated document collections.
-\[Demo coming soon]
+Persona-driven knowledge analysis across curated document collections.<br/>
+[solution_1b_demo.webm]()
 
 > *Each solution folder includes its own README for implementation details.*
 
 ---
 
-## 🛠️ Tech Stack
-
-|                                                      Technology                                                      | Name                     | Purpose                                      |
-| :------------------------------------------------------------------------------------------------------------------: | :----------------------- | :------------------------------------------- |
-|        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>       | Python                   | Primary language for backend processing      |
-| <img src="https://img.shields.io/badge/PyMuPDF-FF6F00?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/> | PyMuPDF                  | Fast PDF parsing and rendering               |
-|  <img src="https://img.shields.io/badge/Transformers-FF6F61?style=for-the-badge&logo=huggingface&logoColor=white"/>  | HuggingFace Transformers | Language modeling for heading classification |
-| <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/> | scikit-learn             | Clustering and ML utilities                  |
-|        <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>       | Pandas                   | Dataframe operations and formatting          |
-|               <img src="https://img.shields.io/badge/TQDM-4CBB17?style=for-the-badge&logoColor=white"/>              | TQDM                     | Progress tracking in batch operations        |
-
----
-
-## 🚀 Getting Started
-
-### 📦 Prerequisites
-
-* Docker
-* Docker Compose
-* Git
-
-### ⚙️ Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/singhal-amit/PortNumber80-AIH
-cd PortNumber80-AIH
-
-# Build and run using Docker Compose
-docker compose build
-docker compose up
-```
-
-<details>
-<summary><h3>📚 Project Structure</h3></summary>
+<details><summary><h3>📚 Project Structure</h3></summary>
 <br/>
   
   ```bash
@@ -134,9 +99,7 @@ docker compose up
 </details>
 </h2>
 
----
-
-## 👥 Team PortNumber80
+## 👥 Team-PortNumber80
 
 | GitHub                                                                                                                              | Name             | Role                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------- |

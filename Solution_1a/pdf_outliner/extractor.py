@@ -8,7 +8,6 @@ from collections import Counter
 from transformers import AutoTokenizer, AutoModel
 import torch
 
-
 class PDFOutlineExtractor:
     def __init__(self):
         base_dir = Path(__file__).resolve().parent.parent

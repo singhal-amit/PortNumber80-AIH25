@@ -28,7 +28,6 @@ Persona-driven knowledge analysis across curated document collections.<br/>
 [solution_1b_demo.webm](https://github.com/user-attachments/assets/dc5264a8-85aa-495e-a88b-c99c49a0d6c2 )
 
 > *Each solution folder includes its own README for implementation details.*
-
 ---
 
 <details><summary><h3>📚 Project Structure</h3></summary>
@@ -101,11 +100,9 @@ Persona-driven knowledge analysis across curated document collections.<br/>
 </details>
 </h2>
 
-## 👥 Team-PortNumber80
+## 👥 **Team PortNumber80**
 
 | GitHub                                                                                                                              | Name             | Role                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------- |
 | <a href="https://github.com/gkjha2772"><img src="https://avatars.githubusercontent.com/u/151064648?v=4&s=100" width="50"/></a>      | Gautam Kumar Jha | • Built Solution 1b                               |
 | <a href="https://github.com/amit712singhal"><img src="https://avatars.githubusercontent.com/u/123376849?v=4&s=100" width="50"/></a> | Amit Singhal     | • Built Solution 1a                               |
-
----

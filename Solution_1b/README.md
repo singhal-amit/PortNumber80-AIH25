@@ -43,6 +43,47 @@ Supports scenarios like:
 
 ---
 
+## 3️⃣ Technical Approach
+
+### ✅ **Key Steps**
+
+---
+
+### 📄 **Text Extraction**
+
+* Uses **PyMuPDF** to extract text **page-by-page** from each PDF.
+* Splits text into logical **sections and paragraphs** for fine-grained ranking.
+
+---
+
+### 🧠 **Embeddings & Similarity**
+
+* Runs **SentenceTransformer** with a **local embedding model** (`all-MiniLM`).
+* Encodes the **persona role + job task + extracted sections** as embeddings.
+
+---
+
+### 📈 **Relevance Ranking**
+
+* Computes **cosine similarity** between the **job embedding** and **section embeddings**.
+* Adjusts final scores with **persona-specific keywords** for better context alignment.
+
+---
+
+### 📑 **Output Generation**
+
+* Saves the **top-ranked sections** in a structured **JSON** format.
+* Includes full **metadata**: source document name, page number, section title, and importance rank.
+
+---
+
+### 🐳 **Containerization**
+
+* Uses **Docker** to ensure a **consistent runtime** across development and deployment.
+* All **models and code** run **offline** inside the container — no internet needed.
+
+---
+
 ## 🗂️ **Project Structure**
 
 ```

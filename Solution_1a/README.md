@@ -36,7 +36,7 @@ This repository contains the solution for **Challenge 1a** of the **Adobe India 
 
 ---
 
-## 3️⃣ Technical Approach
+## 🧠 Technical Approach
 
 ### **Key Steps**
 

@@ -36,6 +36,67 @@ This repository contains the solution for **Challenge 1a** of the **Adobe India 
 
 ---
 
+## 3️⃣ Technical Approach
+
+### **Key Steps**
+
+---
+
+**📄 PDF Parsing**
+
+* Use **PyMuPDF (`fitz`)** to extract text blocks page-by-page.
+* Identify text spans, font sizes, positions, and styling (boldness).
+
+---
+
+**🏷️ Title Extraction**
+
+* Heuristic: Select the **largest font size text** on the first page.
+* Combine multiple spans if needed to form a clean title.
+
+---
+
+**📝 Heading Detection**
+
+* Combine **heuristics** (larger font size than body text, bold style, header region) with **semantic similarity** checks.
+* Use a **local BERT-tiny** model to verify whether a text line matches typical heading phrases.
+* Ignore repetitive page headers/footers and unrelated fields (e.g., form labels).
+
+---
+
+**🔢 Level Assignment**
+
+* Infer heading level (**H1**, **H2**, **H3**) based on **relative font sizes** found on each page.
+* Fallback to simple heuristics to handle inconsistent font usage.
+
+---
+
+**📑 Output Generation**
+
+* Save the extracted **Title** and **headings** in the required **JSON format**:
+
+  ```json
+  {
+    "title": "Document Title",
+    "outline": [
+      {"level": "H1", "text": "Introduction", "page": 1},
+      {"level": "H2", "text": "Background", "page": 2}
+    ]
+  }
+  ```
+* Output **one JSON** per input PDF.
+
+---
+
+**🐳 Containerization**
+
+* All code runs **offline inside a Docker container**.
+* Uses `FROM --platform=linux/amd64` to ensure AMD64 CPU compatibility.
+* `requirements.txt` installs only necessary local dependencies.
+* The **local snapshot** of **`prajjwal1/bert-tiny`** is bundled to avoid internet calls at runtime.
+
+---
+
 ## ⚙️ Installation & Running
 
 ```bash

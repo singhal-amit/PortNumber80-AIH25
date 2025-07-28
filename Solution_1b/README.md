@@ -43,7 +43,7 @@ Supports scenarios like:
 
 ---
 
-## 3️⃣ Technical Approach
+## 🧠 Technical Approach
 
 ### ✅ **Key Steps**
 
